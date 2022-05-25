@@ -1,0 +1,29 @@
+
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+    plugins {
+        id 'kotlin-kapt'
+        id 'dagger.hilt.android.plugin'
+        id 'org.jetbrains.kotlin.android' version '1.6.21'
+    }
+    resolutionStrategy {
+        eachPlugin {
+            if(requested.id.id == 'dagger.hilt.android.plugin') {
+                useModule("com.google.dagger:hilt-android-gradle-plugin:2.40.5")
+            }
+        }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Optik aloqa app"
+include ':app'
