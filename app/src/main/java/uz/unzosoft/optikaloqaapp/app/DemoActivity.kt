@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import kotlinx.coroutines.*
 import uz.unzosoft.optikaloqaapp.databinding.ActivityDemoBinding
+import kotlin.system.measureTimeMillis
 
 class DemoActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDemoBinding
@@ -13,13 +14,15 @@ class DemoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDemoBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        GlobalScope.launch(Dispatchers.IO) {
-            Log.d(TAG, "Starting coroutine in thread ${Thread.currentThread().name}")
-            val networkCall1 = doNetworkCall1()
-            withContext(Dispatchers.Main) {
-                Log.d(TAG, "Setting text in thread ${Thread.currentThread().name}")
-                binding.tv.text = networkCall1
+        CoroutineScope(Dispatchers.IO).launch {
+            val time = measureTimeMillis {
+                val answer1 = async { doNetworkCall1() }
+                val answer2 = async { doNetworkCall2() }
+
+                Log.d(TAG, "Answer 1 =>>>>> ${answer1.await()}")
+                Log.d(TAG, "Answer 2 =>>>>> ${answer2.await()}")
             }
+            Log.d(TAG, "Time worked $time.ms")
         }
     }
 }
@@ -65,3 +68,18 @@ println(doWork + it.toString())
 //    delay(Random().nextInt(5000).toLong())
 //    return "Coroutine ishlayabdi ---->>> $str"
 //}
+
+/**
+ *  val block: suspend CoroutineScope.() -> Unit = { }
+val job = GlobalScope.launch(Dispatchers.Default) {
+repeat(10){
+delay(1000L)
+Log.d(TAG, "Coroutine job started==>>>$it  ${Thread.currentThread().name}")
+}
+}
+runBlocking {
+delay(2000L)
+job.cancel(CancellationException("Cancel exception"))
+Log.d(TAG, "Coroutine run blocking cancel  ${Thread.currentThread().name}")
+}
+ */
