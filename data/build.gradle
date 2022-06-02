@@ -30,6 +30,7 @@ android {
 }
 
 dependencies {
+    implementation project (path :':domain')
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.6.10")
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
