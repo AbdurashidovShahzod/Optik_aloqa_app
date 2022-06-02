@@ -18,7 +18,6 @@ class DemoActivity : AppCompatActivity() {
             val time = measureTimeMillis {
                 val answer1 = async { doNetworkCall1() }
                 val answer2 = async { doNetworkCall2() }
-
                 Log.d(TAG, "Answer 1 =>>>>> ${answer1.await()}")
                 Log.d(TAG, "Answer 2 =>>>>> ${answer2.await()}")
             }

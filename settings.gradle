@@ -9,6 +9,7 @@ pluginManagement {
         id 'kotlin-kapt'
         id 'dagger.hilt.android.plugin'
         id 'org.jetbrains.kotlin.android' version '1.6.21'
+        id 'com.android.library' version '7.1.0'
     }
     resolutionStrategy {
         eachPlugin {
@@ -27,3 +28,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Optik aloqa app"
 include ':app'
+include ':data'
+include ':domain'
