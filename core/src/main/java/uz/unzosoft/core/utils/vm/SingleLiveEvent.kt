@@ -1,4 +1,4 @@
-package uz.unzosoft.optikaloqaapp.core.utils.vm
+package uz.unzosoft.core.utils.vm
 
 
 import androidx.annotation.MainThread

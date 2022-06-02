@@ -1,4 +1,4 @@
-package uz.unzosoft.optikaloqaapp.app.screen
+package uz.unzosoft.optikaloqaapp.app.screen.splash
 
 import android.annotation.SuppressLint
 import android.os.Bundle

@@ -4,12 +4,14 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
     plugins {
         id 'kotlin-kapt'
         id 'dagger.hilt.android.plugin'
         id 'org.jetbrains.kotlin.android' version '1.6.21'
         id 'com.android.library' version '7.1.0'
+        id 'org.jetbrains.kotlin.jvm' version '1.6.21'
     }
     resolutionStrategy {
         eachPlugin {
@@ -24,10 +26,11 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 rootProject.name = "Optik aloqa app"
 include ':app'
 include ':data'
-include ':domain'
 include ':core'
+include ':domain'

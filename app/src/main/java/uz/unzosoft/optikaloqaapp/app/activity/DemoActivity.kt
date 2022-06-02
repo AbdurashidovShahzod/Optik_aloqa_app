@@ -1,4 +1,4 @@
-package uz.unzosoft.optikaloqaapp.app
+package uz.unzosoft.optikaloqaapp.app.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

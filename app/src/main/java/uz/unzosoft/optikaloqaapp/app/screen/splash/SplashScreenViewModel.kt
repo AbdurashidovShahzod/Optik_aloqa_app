@@ -1,4 +1,4 @@
-package uz.unzosoft.optikaloqaapp.app.screen
+package uz.unzosoft.optikaloqaapp.app.screen.splash
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.delay

@@ -8,7 +8,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import uz.unzosoft.optikaloqaapp.core.utils.vm.SingleLiveEvent
+import uz.unzosoft.core.utils.vm.SingleLiveEvent
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 

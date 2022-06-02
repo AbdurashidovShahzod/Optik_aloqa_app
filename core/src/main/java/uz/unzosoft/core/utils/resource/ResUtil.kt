@@ -1,4 +1,4 @@
-package uz.unzosoft.optikaloqaapp.core.utils.resource
+package uz.unzosoft.core.utils.resource
 
 import android.graphics.drawable.Drawable
 
