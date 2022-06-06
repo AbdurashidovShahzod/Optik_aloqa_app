@@ -12,7 +12,7 @@ import uz.unzosoft.core.utils.vm.SingleLiveEvent
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
-abstract class BaseVM : ViewModel() {
+abstract class BaseViewModel : ViewModel() {
 
     private val _globalErrorLiveData = SingleLiveEvent<String>()
     val globalErrorLiveData: LiveData<String> = _globalErrorLiveData

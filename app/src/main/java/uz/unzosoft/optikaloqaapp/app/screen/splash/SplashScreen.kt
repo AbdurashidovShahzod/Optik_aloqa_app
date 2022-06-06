@@ -28,13 +28,6 @@ class SplashScreen : BaseScreen(R.layout.screen_splash) {
     @SuppressLint("UnsafeRepeatOnLifecycleDetector")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         observeStates()
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.navigateState.collect {
-                    Toast.makeText(requireContext(), "Splash screen!!!", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
     }
 
     private fun observeStates() {

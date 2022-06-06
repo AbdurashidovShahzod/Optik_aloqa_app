@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutContent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="@dimen/viewpager_image"
+        android:layout_height="@dimen/viewpager_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/viewPager_title_margin"
+        android:gravity="center"
+        android:text="Title"
+        android:textColor="#3C3A36"
+        android:textSize="@dimen/viewpager_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image" />
+
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/viewpager_margin_left_right"
+        android:layout_marginTop="@dimen/viewPager_title_margin"
+        android:layout_marginRight="@dimen/viewpager_margin_left_right"
+        android:gravity="center"
+        android:text="Quarantine is the perfect time to spend your day learning something new, from anywhere!"
+        android:textColor="#3C3A36"
+        android:textSize="@dimen/viewpager_data"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/next"
+        style="@style/NextButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_marginLeft="@dimen/viewpager_margin_left_right"
+        android:layout_marginRight="@dimen/viewpager_margin_left_right"
+        android:text="Next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/data" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,8 +3,22 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/background_bottom_sheet.xml" value="0.2115" />
+        <entry key="app/src/main/res/drawable/ic_go_back.xml" value="0.2115" />
+        <entry key="app/src/main/res/drawable/ic_outline_person.xml" value="0.2115" />
+        <entry key="app/src/main/res/drawable/selector_bottom_icon_tint.xml" value="0.2115" />
+        <entry key="app/src/main/res/drawable/shape_btn_rounded.xml" value="0.2115" />
+        <entry key="app/src/main/res/drawable/shape_gradient_recycler.xml" value="0.2115" />
+        <entry key="app/src/main/res/drawable/shape_gradient_top_recyclerview.xml" value="0.2115" />
+        <entry key="app/src/main/res/drawable/shape_home_bottom_nav.xml" value="0.2115" />
+        <entry key="app/src/main/res/drawable/shape_home_notification.xml" value="0.2115" />
+        <entry key="app/src/main/res/drawable/shape_home_search.xml" value="0.2115" />
+        <entry key="app/src/main/res/drawable/tab_def.xml" value="0.2115" />
+        <entry key="app/src/main/res/drawable/tab_s.xml" value="0.2115" />
         <entry key="app/src/main/res/layout/activity_demo.xml" value="0.2515625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.125" />
+        <entry key="app/src/main/res/layout/onboarding_page.xml" value="0.24947916666666667" />
+        <entry key="app/src/main/res/layout/screen_on_bording.xml" value="0.24947916666666667" />
         <entry key="app/src/main/res/layout/screen_splash.xml" value="0.15462962962962962" />
       </map>
     </option>

@@ -14,7 +14,7 @@ import androidx.lifecycle.Observer
 
 
 abstract class BaseScreen(@LayoutRes contentLayoutId: Int) : Fragment(contentLayoutId) {
-    abstract val viewModel: BaseVM
+    abstract val viewModel: BaseViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

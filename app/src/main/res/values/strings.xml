@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">Optik aloqa app</string>
+    <string name="warning">Diqqat</string>
+    <string name="enter_name">Sarlavhani kiriting</string>
+    <string name="priexali">Xatolik</string>
+    <string name="please_wait">Iltimos kuting…</string>
+    <string name="rooted_device_descr">"Qurilmangiz xavfsiz emas, iltimos, boshqa qurilmadan kiring"</string>
+    <string name="ok">OK</string>
+    <string name="enter_some_number">Raqamni kiriting</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_main2">MainActivity2</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="news">News</string>
+    <string name="profile">Profile</string>
+    <string name="settings">Settings</string>
+    <string name="no_connect">No connect internet!!!</string>
+    <string name="no_connect_intenet">No internet!!!</string>
 </resources>
