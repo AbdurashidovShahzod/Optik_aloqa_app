@@ -5,6 +5,8 @@ import uz.unzosoft.optikaloqaapp.app.base.BaseViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class OnBoardingScreenViewModel @Inject constructor() : BaseViewModel() {
+class OnBoardingScreenViewModel @Inject constructor(
+
+) : BaseViewModel() {
 
 }

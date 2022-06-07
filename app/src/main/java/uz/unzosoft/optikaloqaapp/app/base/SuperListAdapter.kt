@@ -1,4 +1,4 @@
-package uz.orzon.orzon_courier.base
+package uz.unzosoft.optikaloqaapp.app.base
 
 import android.view.LayoutInflater
 import android.view.View
