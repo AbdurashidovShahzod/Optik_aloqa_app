@@ -4,12 +4,15 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import uz.unzosoft.data.di.AppCacheQualifier
+import uz.unzosoft.data.local.preference.Local
+import uz.unzosoft.data.local.preference.LocalImpl
 import javax.inject.Singleton
 
 

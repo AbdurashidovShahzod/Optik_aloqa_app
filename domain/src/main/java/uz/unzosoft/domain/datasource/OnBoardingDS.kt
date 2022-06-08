@@ -8,6 +8,6 @@ import kotlinx.coroutines.flow.Flow
  * company QQBank
  * shahzod9933@gmail.com
  */
-interface OnBoarding {
-    suspend fun isOnBoarding(isBoarding: Boolean): Flow<Boolean>
+interface OnBoardingDS {
+    suspend fun isOnBoarding(isBoarding: Boolean):Flow<Result<Boolean>>
 }
