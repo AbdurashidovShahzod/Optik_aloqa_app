@@ -3,6 +3,7 @@ package uz.unzosoft.optikaloqaapp.app.screen.splash
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -15,7 +16,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import uz.unzosoft.optikaloqaapp.R
 import uz.unzosoft.optikaloqaapp.app.base.BaseScreen
-import uz.unzosoft.optikaloqaapp.app.utils.utils.state.State
+import uz.unzosoft.optikaloqaapp.app.utils.utils.ext.toast
 import uz.unzosoft.optikaloqaapp.databinding.ScreenSplashBinding
 
 @SuppressLint("CustomSplashScreen")
@@ -27,24 +28,26 @@ class SplashScreen : BaseScreen(R.layout.screen_splash) {
     @SuppressLint("UnsafeRepeatOnLifecycleDetector")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         observeStates()
-        binding.imgSplash.animate()
-            .translationX(0F)
-            .alpha(1F)
-            .setDuration(1000)
-            .start()
+        loadAnimationData()
+    }
+
+    private fun loadAnimationData() = with(binding) {
+        imgSplash.animation = AnimationUtils.loadAnimation(requireContext(),R.anim.side_anim)
+        tvSplash.animation = AnimationUtils.loadAnimation(requireContext(),R.anim.bottom_anim)
     }
 
     private fun observeStates() {
         lifecycleScope.launch {
             viewModel.navigateState.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
-                .collectLatest { state ->
-                    when (state) {
-                        is State.Default -> {
-                            delay(3000)
-                            findNavController().navigate(R.id.action_splashScreen_to_onBoardingScreen)
-                        }
-                    }
+                .collectLatest { isBoarding ->
+                    navigate(isBoarding)
                 }
         }
+    }
+    suspend fun navigate(isBoarding:Boolean){
+        delay(3000)
+        if (isBoarding){
+            toast(true)
+        }else findNavController().navigate(R.id.action_splashScreen_to_onBoardingScreen)
     }
 }

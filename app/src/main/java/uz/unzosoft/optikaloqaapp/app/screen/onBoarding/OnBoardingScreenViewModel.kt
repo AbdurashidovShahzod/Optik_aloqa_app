@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import uz.unzosoft.data.local.preference.Local
 import uz.unzosoft.data.usecase.OnBoardingUseCaseImpl
 import uz.unzosoft.domain.core.Result
 import uz.unzosoft.optikaloqaapp.app.base.BaseViewModel
@@ -14,7 +15,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OnBoardingScreenViewModel @Inject constructor(
-    private var useCase: OnBoardingUseCaseImpl
+    private var useCase: OnBoardingUseCaseImpl,
+    private val local: Local
 ) : BaseViewModel() {
     private val _launchState = MutableStateFlow<State<Boolean>>(State.Default)
     val launchState = _launchState.asStateFlow()
@@ -28,6 +30,14 @@ class OnBoardingScreenViewModel @Inject constructor(
                     is Result.Error -> _launchState.value = State.Error(it.failure)
                 }
             }
+        }
+    }
+
+    fun checkOnBoarding(isBoarding: Boolean) {
+        _launchState.value = State.Loading
+        launchVM {
+            local.isOnBoarding = isBoarding
+            _launchState.value = State.Success(local.isOnBoarding)
         }
     }
 }

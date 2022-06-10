@@ -2,6 +2,7 @@ package uz.unzosoft.optikaloqaapp.app.screen.onBoarding
 
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -26,6 +27,7 @@ class OnBoardPageScreen : BaseScreen(R.layout.onboarding_page) {
         binding.image.setImageResource(image)
         binding.title.text = title
         binding.data.text = data
+        loadAnimationData()
         binding.next.setOnClickListener {
             listenerNext?.invoke(image)
         }
@@ -34,6 +36,12 @@ class OnBoardPageScreen : BaseScreen(R.layout.onboarding_page) {
 
     fun setNext(block: (Int) -> Unit) {
         listenerNext = block
+    }
+
+    private fun loadAnimationData() = with(binding) {
+        image.animation = AnimationUtils.loadAnimation(requireContext(),R.anim.side_anim)
+        title.animation = AnimationUtils.loadAnimation(requireContext(),R.anim.bottom_anim)
+        data.animation = AnimationUtils.loadAnimation(requireContext(),R.anim.slide_in)
     }
 
 }
