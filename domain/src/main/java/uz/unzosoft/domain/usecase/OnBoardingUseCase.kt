@@ -1,5 +1,7 @@
 package uz.unzosoft.domain.usecase
 
+import kotlinx.coroutines.flow.Flow
+import uz.unzosoft.domain.core.Result
 import uz.unzosoft.domain.usecase.base.SuspendUseCase
 
 
@@ -9,7 +11,5 @@ import uz.unzosoft.domain.usecase.base.SuspendUseCase
  * shahzod9933@gmail.com
  */
 interface OnBoardingUseCase:SuspendUseCase<Boolean,Boolean> {
-    override suspend fun invoke(params: Boolean): Result<Boolean> {
-        return Result.success(params)
-    }
+
 }

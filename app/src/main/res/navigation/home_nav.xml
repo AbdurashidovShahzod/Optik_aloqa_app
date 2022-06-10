@@ -9,5 +9,17 @@
         android:id="@+id/splashScreen"
         android:name="uz.unzosoft.optikaloqaapp.app.screen.splash.SplashScreen"
         android:label="screen_splash"
-        tools:layout="@layout/screen_splash" />
+        tools:layout="@layout/screen_splash" >
+        <action
+            android:id="@+id/action_splashScreen_to_onBoardingScreen"
+            app:destination="@id/onBoardingScreen"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/splashScreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/onBoardingScreen"
+        android:name="uz.unzosoft.optikaloqaapp.app.screen.onBoarding.OnBoardingScreen"
+        android:label="screen_on_boarding"
+        tools:layout="@layout/screen_on_boarding" />
 </navigation>

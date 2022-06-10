@@ -4,12 +4,19 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.flowWithLifecycle
+import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import uz.unzosoft.optikaloqaapp.R
 import uz.unzosoft.optikaloqaapp.app.base.BaseScreen
 import uz.unzosoft.optikaloqaapp.app.screen.onBoarding.adapter.OnBoardingPagerAdapter
+import uz.unzosoft.optikaloqaapp.app.utils.utils.ext.toast
+import uz.unzosoft.optikaloqaapp.app.utils.utils.state.State
 import uz.unzosoft.optikaloqaapp.databinding.ScreenOnBoardingBinding
 import uz.unzosoft.optikaloqaapp.databinding.ScreenSplashBinding
 
@@ -33,21 +40,21 @@ class OnBoardingScreen : BaseScreen(R.layout.screen_on_boarding) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        observeStates()
 
         adapter = OnBoardingPagerAdapter(image, title, data, requireActivity())
         binding.pager.adapter = adapter
 
 
         binding.skip.setOnClickListener {
-            checkOnBoarding()
+            //checkOnBoarding()
         }
         binding.apply {
             adapter.setNext {
                 if (pager.currentItem < image.size - 1) {
                     pager.currentItem = pager.currentItem + 1
                 } else if (pager.currentItem == image.size - 1) {
-                    checkOnBoarding()
+                    //checkOnBoarding()
                 }
             }
             TabLayoutMediator(tabLay, pager) { t, p ->
@@ -58,12 +65,32 @@ class OnBoardingScreen : BaseScreen(R.layout.screen_on_boarding) {
 
 
     }
-    private fun checkOnBoarding() {
-        if (!localStorage.isOnBoarding) {
-            localStorage.isOnBoarding = true
-            val intent = Intent(context, HomeActivity2::class.java)
-            startActivity(intent)
-            activity?.finishAffinity()
+
+    private fun observeStates() {
+        lifecycleScope.launch {
+            viewModel.launchState.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED)
+                .collectLatest { state->
+                    when (state) {
+                            is State.Default -> {}
+                            is State.Loading -> {}
+                            is State.Success -> {
+                                val isBoarding = state.data
+                                toast(isBoarding)
+                            }
+                            is State.Error -> {}
+                    }
+                }
         }
     }
+
+//    private fun checkOnBoarding() {
+//
+//
+//        if (!localStorage.isOnBoarding) {
+//            localStorage.isOnBoarding = true
+//            val intent = Intent(context, HomeActivity2::class.java)
+//            startActivity(intent)
+//            activity?.finishAffinity()
+//        }
+//    }
 }

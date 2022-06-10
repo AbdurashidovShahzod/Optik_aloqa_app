@@ -15,7 +15,6 @@ class SplashScreenViewModel @Inject constructor() : BaseViewModel() {
 
     init {
         launchVM {
-            delay(3000L)
             _navigateState.emit(State.Default)
         }
     }

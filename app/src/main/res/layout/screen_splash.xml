@@ -1,18 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
     tools:context=".app.screen.splash.SplashScreen">
+    <ImageView
+        android:id="@+id/imgSplash"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:background="@drawable/mudofa"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
 
     <TextView
-        android:id="@+id/tv"
+        android:id="@+id/tvSplash"
         android:layout_width="match_parent"
-        android:textSize="30sp"
-        android:textColor="@color/black"
-        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/brandon"
         android:gravity="center"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:text="@string/app_name"
+        android:textColor="@color/purple_200"
+        android:textSize="@dimen/txt_splash"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgSplash" />
 
-</FrameLayout>
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.Circle"
+        app:SpinKit_Color="@color/purple_500"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintLeft_toLeftOf="@id/imgSplash"
+        app:layout_constraintRight_toRightOf="@id/imgSplash"
+        app:layout_constraintTop_toBottomOf="@id/tvSplash" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
